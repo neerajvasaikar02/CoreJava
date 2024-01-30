@@ -7,8 +7,9 @@ public class StringReverse {
 	String str = s.next();
 	for(int i=str.length();i>0;i--)
 	{
-		System.out.println();
-	}
+		System.out.print(str.charAt(i-1));
 	}
 	s.close();
+	}
+	
 }
