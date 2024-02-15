@@ -1,4 +1,4 @@
-package com.edubridge.typecasting;
+ package com.edubridge.typecasting;
 
 public class TypeCastingDemo {
 
