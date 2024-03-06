@@ -4,6 +4,6 @@
 /**
  * 
  */
-module DesignPattern {
+module ProjectManagementSystem {
 	requires java.sql;
 }

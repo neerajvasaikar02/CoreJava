@@ -19,9 +19,10 @@ public class JDBCSingleTone {
 	private static Connection getConnection()throws ClassNotFoundException, SQLException{
 	Connection Con=null;
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	Con= DriverManager.getConnection("jdbc:mysql//localhost:3306/singletone", "root","root");
+	Con= DriverManager.getConnection("jdbc:mysql://localhost:3306/singletone", "root","root");
 	return Con;
 }
+	
 	
 //Insert
 	public int insert(String name,String pass, int id)throws SQLException{
@@ -30,7 +31,7 @@ public class JDBCSingleTone {
 	int recordCounter=0;
 	try {
 		c=this.getConnection();
-	ps=c.prepareStatement("insert into employee(uid,uname,upass)(?,?,?)");
+	ps=c.prepareStatement("insert into employee(eid,uname,upass)values(?,?,?);");
 	ps.setInt(1, id);
 	ps.setString(2,  name);
 	ps.setString(3, pass);
@@ -52,8 +53,9 @@ public class JDBCSingleTone {
 	}
 	
 	
+	
 //View
-public void view()throws SQLException{
+	public void view()throws SQLException{
 	Connection con=null;
 	PreparedStatement ps=null;
 	ResultSet rs=null;
@@ -81,18 +83,21 @@ public void view()throws SQLException{
 			}
 		}
 	}
+	
+	
 
 //Update
-public int update(int id,String password)throws SQLException {
+	public int update(String uname,int id,String password)throws SQLException {
 	Connection c=null;
 	PreparedStatement ps=null;
 	int recordCounter=0;
 	
 	try {
 		c=this.getConnection();
-		ps=c.prepareStatement("update employee set upass=? where eid='"+id+"' ");
-		ps.setString(1,  password);
-		ps.setInt(2,  id);
+		ps=c.prepareStatement("update employee set uname=?, upass=? where eid=?; ");
+		ps.setString(1, uname);
+		ps.setString(2,  password);
+		ps.setInt(3,  id);
 		recordCounter=ps.executeUpdate();
 	}
 	catch(Exception e) {
@@ -101,9 +106,6 @@ public int update(int id,String password)throws SQLException {
 	finally {
 		if(ps!=null) {
 			ps.close();
-		}
-		if(ps!=null) {
-			ps.close();			
 		}
 		if(c!=null) {
 			c.close();
@@ -117,13 +119,13 @@ public int update(int id,String password)throws SQLException {
 	
 	
 //Delete
-public int delete(int userid) throws SQLException {
+	public int delete(int userid) throws SQLException {
 	Connection c=null;
 	PreparedStatement ps=null;
 	int recordCounter=0;
 	try {
 		c=this.getConnection();
-		ps = c.prepareStatement("delete from emp where eidf='"+userid+"'");
+		ps = c.prepareStatement("delete from employee where eid='"+userid+"'");
 		int recordCounter1 = ps.executeUpdate();
 	}
 	catch(Exception e) {

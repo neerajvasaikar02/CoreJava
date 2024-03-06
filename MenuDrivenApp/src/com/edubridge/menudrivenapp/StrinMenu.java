@@ -17,6 +17,7 @@ public class StrinMenu {
 			Scanner sc=new Scanner(System.in);
 			System.out.println("Enter choice");
 			choice=sc.nextInt();
+		
 			switch(choice) {
 			case 1:
 				System.out.println("String Length:");
@@ -47,9 +48,10 @@ public class StrinMenu {
 				System.out.println("Wrong Input");
 			break;
 			}
-        }
+		}
 	}
 }
+
 			
 		
 	
