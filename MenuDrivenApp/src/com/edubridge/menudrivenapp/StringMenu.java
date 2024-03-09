@@ -48,8 +48,10 @@ public class StringMenu {
 				System.out.println("Wrong Input");
 			break;
 			}
-		}
+		}while(choice>=5);
 	
+	}
+	}
 		
 	
 

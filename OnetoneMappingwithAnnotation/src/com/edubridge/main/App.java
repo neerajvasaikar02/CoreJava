@@ -8,13 +8,12 @@ import org.hibernate.Transaction;
 import com.edubridge.entity.Applicant;
 import com.edubridge.entity.Passport;
 
-
 public class App {
 
 	public static void main(String args[]) {
 	System.out.println("Mapping One to One relationship");
 		
-		Session session=HibernateUtil1.getSessionFactory().openSession();
+		Session session=HibernateUtil.getSessionFactory().openSession();
 		Transaction t = session.beginTransaction();
 		
 		Passport p=new Passport();

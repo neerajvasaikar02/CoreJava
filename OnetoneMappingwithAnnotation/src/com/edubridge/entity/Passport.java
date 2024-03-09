@@ -3,6 +3,8 @@ package com.edubridge.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+
 import org.hibernate.annotations.Parameter;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
