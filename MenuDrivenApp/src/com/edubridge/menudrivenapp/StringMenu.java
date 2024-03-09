@@ -2,7 +2,7 @@ package com.edubridge.menudrivenapp;
 
 import java.util.Scanner;
 
-public class StrinMenu {
+public class StringMenu {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to String Management System");
@@ -49,8 +49,10 @@ public class StrinMenu {
 			break;
 			}
 		}
-	}
-}
+	
+		
+	
+
 
 			
 		
